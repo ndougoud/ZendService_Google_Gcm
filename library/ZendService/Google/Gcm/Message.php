@@ -174,7 +174,7 @@ class Message
      * @throws Exception\InvalidArgumentException
      * @throws Exception\RuntimeException
      */
-    public function addData($key, $value)
+    /*public function addData($key, $value)
     {
         if (!is_string($key) || empty($key)) {
             throw new Exception\InvalidArgumentException('$key must be a non-empty string');
@@ -182,6 +182,18 @@ class Message
         if (in_array($key, $this->data)) {
             throw new Exception\RuntimeException('$key conflicts with current set data');
         }
+        $this->data[$key] = $value;
+        return $this;
+    }*/
+    //FIX: do not remove!!! (exception was always thrown)
+    public function addData($key, $value)
+    {
+        if (!is_string($key) || empty($key)) {
+            throw new Exception\InvalidArgumentException('$key must be a non-empty string');
+        }
+        //if (in_array($key, $this->data)) {
+        //    throw new Exception\RuntimeException('$key conflicts with current set data');
+        //}
         $this->data[$key] = $value;
         return $this;
     }
